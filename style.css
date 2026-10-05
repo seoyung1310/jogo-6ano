@@ -1,0 +1,424 @@
+/* Reset e Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #fce4ec, #e8f5e9, #e3f2fd);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.game-container {
+    width: 100%;
+    max-width: 800px;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border: 3px solid #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Telas */
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Tela de Abertura */
+.fofo-header h1 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.5rem;
+    color: #f48fb1;
+    text-shadow: 2px 2px 0 #fff;
+    margin-bottom: 10px;
+}
+
+.fofo-header p {
+    font-size: 1.1rem;
+    color: #81c784;
+    font-weight: 600;
+    background: #fff;
+    display: inline-block;
+    padding: 5px 20px;
+    border-radius: 20px;
+}
+
+.personagem-abertura {
+    margin: 30px 0;
+}
+
+.instrucoes {
+    font-size: 1.1rem;
+    color: #64b5f6;
+    margin-bottom: 25px;
+    font-weight: 600;
+    line-height: 1.6;
+}
+
+/* Botão Fofo */
+.btn-fofo {
+    background: #f8bbd0;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    font-size: 1.3rem;
+    font-family: 'Fredoka One', cursive;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #f48fb1, 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.1s ease;
+    letter-spacing: 1px;
+}
+
+.btn-fofo:hover {
+    background: #f48fb1;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 0 #ec407a, 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.btn-fofo:active {
+    transform: translateY(5px);
+    box-shadow: 0 3px 0 #ec407a, 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Barra Superior */
+.top-bar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #64b5f6;
+    font-size: 1.1rem;
+}
+
+.rodada, .acertos {
+    background: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 0 #e3f2fd;
+}
+
+/* Boneco e Forca */
+.boneco-area {
+    position: relative;
+    width: 200px;
+    height: 180px;
+    margin: 10px auto 20px;
+}
+
+.forca {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 150px;
+}
+
+.poste {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 150px;
+    background: #a1887f;
+    border-radius: 4px;
+}
+
+.trave {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 80px;
+    height: 8px;
+    background: #a1887f;
+    border-radius: 4px;
+}
+
+.corda {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 30px;
+    background: #bcaaa4;
+    border-radius: 2px;
+}
+
+/* Boneco Fofo */
+.boneco-fofo {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 120px;
+    transition: all 0.3s ease;
+}
+
+/* Partes do Boneco */
+.cabeca {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: #ffccbc;
+    border-radius: 50%;
+    border: 3px solid #ffab91;
+    box-shadow: 0 4px 0 #ffab91;
+    z-index: 2;
+}
+
+.corpo {
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 45px;
+    background: #b3e5fc;
+    border-radius: 15px 15px 10px 10px;
+    border: 3px solid #81d4fa;
+    box-shadow: 0 4px 0 #81d4fa;
+    z-index: 1;
+}
+
+.bracos {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 10px;
+    background: #ffccbc;
+    border-radius: 10px;
+    border: 2px solid #ffab91;
+}
+
+.pernas {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35px;
+    height: 25px;
+    background: #c8e6c9;
+    border-radius: 0 0 10px 10px;
+    border: 3px solid #a5d6a7;
+}
+
+/* Olhos e Boca (tristes) */
+.olhos {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 3;
+}
+
+.olho-esq, .olho-dir {
+    width: 8px;
+    height: 8px;
+    background: #5d4037;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.boca {
+    position: absolute;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 8px;
+    border-bottom: 3px solid #5d4037;
+    border-radius: 0 0 10px 10px;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+/* Estados de Erro (triste) */
+.boneco-fofo.triste .olho-esq,
+.boneco-fofo.triste .olho-dir {
+    height: 4px;
+    border-radius: 2px;
+    background: #5d4037;
+    transform: translateY(2px);
+}
+
+.boneco-fofo.triste .boca {
+    border-bottom: none;
+    border-top: 3px solid #5d4037;
+    border-radius: 10px 10px 0 0;
+    top: 38px;
+}
+
+/* Pergunta */
+.pergunta-box {
+    background: #fff;
+    padding: 20px 25px;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 6px 0 #e3f2fd;
+    border: 2px solid #bbdefb;
+}
+
+#pergunta-texto {
+    font-size: 1.2rem;
+    color: #5d4037;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+/* Alternativas */
+.alternativas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.alternativa-btn {
+    background: #fff;
+    border: 3px solid #f8bbd0;
+    padding: 15px 10px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #5d4037;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 5px 0 #f8bbd0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.alternativa-btn:hover:not(:disabled) {
+    background: #fce4ec;
+    transform: translateY(-2px);
+    box-shadow: 0 7px 0 #f8bbd0;
+}
+
+.alternativa-btn:active:not(:disabled) {
+    transform: translateY(3px);
+    box-shadow: 0 2px 0 #f8bbd0;
+}
+
+.alternativa-btn.correta {
+    background: #c8e6c9;
+    border-color: #a5d6a7;
+    box-shadow: 0 5px 0 #a5d6a7;
+    color: #2e7d32;
+}
+
+.alternativa-btn.errada {
+    background: #ffcdd2;
+    border-color: #ef9a9a;
+    box-shadow: 0 5px 0 #ef9a9a;
+    color: #c62828;
+}
+
+.alternativa-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.9;
+}
+
+/* Feedback */
+.feedback {
+    font-size: 1.2rem;
+    font-weight: 600;
+    min-height: 30px;
+    color: #64b5f6;
+    transition: all 0.3s ease;
+}
+
+/* Tela Final */
+#end-screen h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2.2rem;
+    color: #f48fb1;
+    margin-bottom: 20px;
+}
+
+.resultado {
+    background: #fff;
+    padding: 25px 35px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 0 #e3f2fd;
+    border: 2px solid #bbdefb;
+}
+
+.resultado p {
+    font-size: 1.3rem;
+    color: #5d4037;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.final-message {
+    font-size: 1.1rem;
+    color: #81c784;
+    font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 20px 15px;
+        border-radius: 30px;
+    }
+
+    .fofo-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .alternativas {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-fofo {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+
+    #pergunta-texto {
+        font-size: 1rem;
+    }
+
+    .boneco-area {
+        width: 160px;
+        height: 150px;
+    }
+}

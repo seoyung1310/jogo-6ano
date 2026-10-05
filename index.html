@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎨 Jogo das Artes - Enforcado Fofo 🎭</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fonte fofa do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <!-- Tela de Abertura -->
+        <div id="start-screen" class="screen active">
+            <div class="fofo-header">
+                <h1>🎨 Jogo das Artes 🎭</h1>
+                <p>Música • Dança • Teatro • Artes Visuais</p>
+            </div>
+            <div class="personagem-abertura">
+                <div class="boneco-fofo">
+                    <div class="cabeca"></div>
+                    <div class="corpo"></div>
+                    <div class="bracos"></div>
+                    <div class="pernas"></div>
+                </div>
+            </div>
+            <p class="instrucoes">Responda 10 perguntas sobre Arte.<br>Se errar, o bonequinho fica triste! 😢</p>
+            <button id="btn-iniciar" class="btn-fofo">✨ Começar a Jogar ✨</button>
+        </div>
+
+        <!-- Tela do Jogo -->
+        <div id="game-screen" class="screen">
+            <div class="top-bar">
+                <div class="rodada">Rodada: <span id="current-round">1</span>/10</div>
+                <div class="acertos">Acertos: <span id="score">0</span></div>
+            </div>
+
+            <div class="boneco-area">
+                <div id="boneco" class="boneco-fofo">
+                    <div class="cabeca"></div>
+                    <div class="corpo"></div>
+                    <div class="bracos"></div>
+                    <div class="pernas"></div>
+                    <div class="olhos">
+                        <div class="olho-esq"></div>
+                        <div class="olho-dir"></div>
+                    </div>
+                    <div class="boca"></div>
+                </div>
+                <div class="forca">
+                    <div class="poste"></div>
+                    <div class="trave"></div>
+                    <div class="corda"></div>
+                </div>
+            </div>
+
+            <div class="pergunta-box">
+                <p id="pergunta-texto">Carregando pergunta...</p>
+            </div>
+
+            <div id="alternativas-container" class="alternativas">
+                <!-- As alternativas serão inseridas pelo JS -->
+            </div>
+
+            <div id="feedback" class="feedback"></div>
+        </div>
+
+        <!-- Tela de Fim de Jogo -->
+        <div id="end-screen" class="screen">
+            <h2 id="end-title">Fim de Jogo!</h2>
+            <div class="resultado">
+                <p>Você acertou <span id="final-score">0</span> de 10 perguntas.</p>
+                <div id="final-message" class="final-message"></div>
+            </div>
+            <button id="btn-reiniciar" class="btn-fofo">🔄 Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
